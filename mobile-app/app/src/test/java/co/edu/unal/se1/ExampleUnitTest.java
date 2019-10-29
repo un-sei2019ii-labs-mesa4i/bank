@@ -1,4 +1,4 @@
-package co.unal.edu.se1;
+package co.edu.unal.se1;
 
 import org.junit.Test;
 

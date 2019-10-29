@@ -1,4 +1,4 @@
-package co.unal.edu.se1;
+package co.edu.unal.se1;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("co.unal.edu.se1", appContext.getPackageName());
+        assertEquals("co.edu.unal.se1", appContext.getPackageName());
     }
 }
