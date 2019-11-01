@@ -3,31 +3,25 @@ package co.edu.unal.se1.businessLogic.controller;
 import android.content.Context;
 
 import co.edu.unal.se1.dataAccess.model.ApplicationUser;
-import co.edu.unal.se1.dataAccess.repository.UserRepository;
+import co.edu.unal.se1.dataAccess.model.SavingsAccount;
+import co.edu.unal.se1.dataAccess.repository.SavingsAccountRepository;
 
-public class UserController {
+public class SavingsAccountController extends Controller{
 
-    private UserRepository userRepository;
+    private SavingsAccountRepository savingsAccountRepository;
 
-    public UserController() {
-
-    }
-
-    public void createUser(ApplicationUser user, Context context) {
-
-        userRepository = new UserRepository(context);
-        userRepository.createUser(user);
-        System.out.println("¡Usuario creado satisfactoriamente!");
+    public SavingsAccountController(Context context) {
+        super(context);
     }
 
     public boolean sendMoney(int sourceId, int targetId, double value, Context context) {
 
-        userRepository = new UserRepository(context);
+        savingsAccountRepository = new SavingsAccountRepository(context);
 
-        final ApplicationUser sourceUser = userRepository.getUserById(sourceId);
-        System.out.println("Source User - ID: " + sourceUser.getId() +
-                ", Name: " + sourceUser.getName() +
-                ", Balance: " + sourceUser.getBalance());
+        final ApplicationUser sourceUser = applicationUserRepository.getUserById(sourceId);
+        System.out.println("Source User - ID: " + sourceUser.getAppUserId() +
+                ", Name: " + sourceUser.getAppUserName()+
+                ", Account: " + sourceUser.getSavingsAccount());
 
         if (sourceUser.getBalance() >= value) {
 

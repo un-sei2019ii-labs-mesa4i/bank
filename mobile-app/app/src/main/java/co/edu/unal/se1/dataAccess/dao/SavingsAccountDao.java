@@ -8,22 +8,23 @@ import androidx.room.Update;
 import java.util.List;
 
 import co.edu.unal.se1.dataAccess.model.ApplicationUser;
+import co.edu.unal.se1.dataAccess.model.SavingsAccount;
 
 @Dao
 public interface SavingsAccountDao {
 
-    @Query("SELECT * FROM ApplicationUser")
-    List<ApplicationUser> getAllUsers();
+    @Query("SELECT * FROM savingsaccount")
+    List<SavingsAccount> getAllSavingsAccounts();
 
-    @Query("SELECT * FROM user WHERE id = :id")
-    ApplicationUser getUserById(int id);
+    @Query("SELECT * FROM savingsaccount WHERE savingsAccountId = :id")
+    SavingsAccount getSavingsAccountById(int id);
 
     @Insert
-    void createUser(ApplicationUser user);
+    void createAccount(SavingsAccount savingsAccount);
 
     @Update
-    void updateUser(ApplicationUser user);
+    void updateAccount(SavingsAccount savingsAccount);
 
     @Delete
-    void deleteUser(ApplicationUser user);
+    void deleteAccount(SavingsAccount savingsAccount);
 }
