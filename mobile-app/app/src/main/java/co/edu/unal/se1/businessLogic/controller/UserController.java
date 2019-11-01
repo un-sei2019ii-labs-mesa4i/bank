@@ -2,7 +2,7 @@ package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
 
-import co.edu.unal.se1.dataAccess.model.User;
+import co.edu.unal.se1.dataAccess.model.ApplicationUser;
 import co.edu.unal.se1.dataAccess.repository.UserRepository;
 
 public class UserController {
@@ -13,7 +13,7 @@ public class UserController {
 
     }
 
-    public void createUser(User user, Context context) {
+    public void createUser(ApplicationUser user, Context context) {
 
         userRepository = new UserRepository(context);
         userRepository.createUser(user);
@@ -24,14 +24,14 @@ public class UserController {
 
         userRepository = new UserRepository(context);
 
-        final User sourceUser = userRepository.getUserById(sourceId);
+        final ApplicationUser sourceUser = userRepository.getUserById(sourceId);
         System.out.println("Source User - ID: " + sourceUser.getId() +
                 ", Name: " + sourceUser.getName() +
                 ", Balance: " + sourceUser.getBalance());
 
         if (sourceUser.getBalance() >= value) {
 
-            final User targetUser = userRepository.getUserById(targetId);
+            final ApplicationUser targetUser = userRepository.getUserById(targetId);
             System.out.println("Target User - ID: " + targetUser.getId() +
                     ", Name: " + targetUser.getName() +
                     ", Balance: " + targetUser.getBalance());
@@ -41,12 +41,12 @@ public class UserController {
             userRepository.updateUser(sourceUser);
             userRepository.updateUser(targetUser);
 
-            final User updatedSourceUser = userRepository.getUserById(sourceId);
+            final ApplicationUser updatedSourceUser = userRepository.getUserById(sourceId);
             System.out.println("Source User (updated) - ID: " + updatedSourceUser.getId() +
                     ", Name: " + updatedSourceUser.getName() +
                     ", Balance: " + updatedSourceUser.getBalance());
 
-            final User updatedTargetUser = userRepository.getUserById(targetId);
+            final ApplicationUser updatedTargetUser = userRepository.getUserById(targetId);
             System.out.println("Target User (updated) - ID: " + updatedTargetUser.getId() +
                     ", Name: " + updatedTargetUser.getName() +
                     ", Balance: " + updatedTargetUser.getBalance());

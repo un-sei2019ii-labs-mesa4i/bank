@@ -12,7 +12,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import co.edu.unal.se1.R;
 import co.edu.unal.se1.businessLogic.controller.UserController;
-import co.edu.unal.se1.dataAccess.model.User;
+import co.edu.unal.se1.dataAccess.model.ApplicationUser;
 import co.edu.unal.se1.dataAccess.repository.UserRepository;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                User user = new User();
+                ApplicationUser user = new ApplicationUser();
                 user.setId(Integer.parseInt(idInput.getText().toString()));
                 user.setName(nameInput.getText().toString());
                 user.setBalance(Double.parseDouble(balanceInput.getText().toString()));
