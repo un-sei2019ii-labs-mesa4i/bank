@@ -8,10 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import co.edu.unal.se1.R;
 import co.edu.unal.se1.businessLogic.controller.SavingsAccountController;
+import co.edu.unal.se1.businessLogic.controller.TransferController;
+import co.edu.unal.se1.dataAccess.model.Transfer;
 
 public class TransactionView extends AppCompatActivity {
 
     private SavingsAccountController savingsAccountController;
+    private TransferController transferController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class TransactionView extends AppCompatActivity {
             public void onClick(View v) {
 
                 savingsAccountController = new SavingsAccountController(getApplicationContext());
+                transferController=new TransferController(getApplicationContext());
 
                 int sourceId = Integer.parseInt(sourceIdInput.getText().toString());
                 int targetId = Integer.parseInt(targetIdInput.getText().toString());
@@ -36,10 +40,25 @@ public class TransactionView extends AppCompatActivity {
                 boolean transaction = savingsAccountController.sendMoney(sourceId, targetId, value, getApplicationContext());
 
                 if (transaction) {
+                    Transfer transfer=new Transfer();
+                    transfer.setAmount(value);
+                    transfer.setReceiverId(targetId);
+                    transfer.setDepositorId(sourceId);
+                    transferController.createTransfer(transfer,getApplicationContext());
+
                     System.out.println("¡Transacción satisfactoria!");
                 } else {
                     System.out.println("¡Transacción no satisfactoria!");
                 }
+            }
+        });
+
+        Button logButton = findViewById(R.id.logBtn);
+        logButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(v.getContext(),TransactionsLog.class);
+                startActivity(i);
             }
         });
 

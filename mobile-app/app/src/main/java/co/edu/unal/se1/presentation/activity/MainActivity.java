@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
                 account.setSavingsAccountId(Integer.parseInt(accountInput.getText().toString()));
                 account.setBalance(Double.parseDouble(balanceInput.getText().toString()));
-                //account.setBalance(100);
                 account.setAppAccount("");
                 account.setOwner(Integer.parseInt(idInput.getText().toString()));
 
@@ -54,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button tranferButton = findViewById(R.id.transferBtn);
-        tranferButton.setOnClickListener(new View.OnClickListener() {
+        Button transferButton = findViewById(R.id.transferBtn);
+        transferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(v.getContext(),TransactionView.class);
