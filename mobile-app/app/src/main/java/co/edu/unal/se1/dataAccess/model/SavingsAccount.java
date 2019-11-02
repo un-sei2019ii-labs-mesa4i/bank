@@ -12,21 +12,13 @@ public class SavingsAccount implements Serializable {
     public int savingsAccountId;
 
     @ColumnInfo(name = "balance")
-    public String balance;
+    public double balance;
 
     @ColumnInfo(name = "appAccount")
-    public double appAccount;
+    public String appAccount;
 
     @ColumnInfo(name = "owner")
-    public double owner;
-
-    public int getaccountId() {
-        return savingsAccountId;
-    }
-
-    public void setAccountId(int id) {
-        this.savingsAccountId = id;
-    }
+    public ApplicationUser owner;
 
     public int getSavingsAccountId() {
         return savingsAccountId;
@@ -36,27 +28,27 @@ public class SavingsAccount implements Serializable {
         this.savingsAccountId = savingsAccountId;
     }
 
-    public String getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public double getOwner() {
-        return owner;
-    }
-
-    public void setOwner(double owner) {
-        this.owner = owner;
-    }
-
-    /*public double getAppAccount() {
+    public String getAppAccount() {
         return appAccount;
     }
 
-    public void setAppAccount(double appAccount) {
+    public void setAppAccount(String appAccount) {
         this.appAccount = appAccount;
-    }*/
+    }
+
+    public ApplicationUser getOwner() {
+        return owner;
+    }
+
+    public void setOwner(ApplicationUser owner) {
+        this.owner = owner;
+    }
 }
