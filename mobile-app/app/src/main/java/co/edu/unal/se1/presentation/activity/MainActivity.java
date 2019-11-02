@@ -37,23 +37,24 @@ public class MainActivity extends AppCompatActivity {
 
                 user.setAppUserId(Integer.parseInt(idInput.getText().toString()));
                 user.setAppUserName(nameInput.getText().toString());
-                user.setSavingsAccount(account);
+                user.setSavingsAccount(Integer.parseInt(accountInput.getText().toString()));
 
                 account.setSavingsAccountId(Integer.parseInt(accountInput.getText().toString()));
                 account.setBalance(Double.parseDouble(balanceInput.getText().toString()));
                 //account.setBalance(100);
                 account.setAppAccount("");
-                account.setOwner(user);
+                account.setOwner(Integer.parseInt(idInput.getText().toString()));
 
                 applicationUserController = new ApplicationUserController(getApplicationContext());
                 savingsAccountController = new SavingsAccountController(getApplicationContext());
 
-                applicationUserController.createApplicationUser(user, getApplicationContext());
                 savingsAccountController.createSavingsAccount(account, getApplicationContext());
+                applicationUserController.createApplicationUser(user, getApplicationContext());
+
             }
         });
 
-        Button tranferButton = findViewById(R.id.TransferBtn);
+        Button tranferButton = findViewById(R.id.transferBtn);
         tranferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

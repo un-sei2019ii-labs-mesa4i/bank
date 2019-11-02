@@ -15,7 +15,7 @@ public class ApplicationUser implements Serializable {
     public String appUserName;
 
     @ColumnInfo(name = "savingsAccount")
-    public SavingsAccount savingsAccount;
+    public int savingsAccount;
 
     public int getAppUserId() {
         return appUserId;
@@ -33,11 +33,11 @@ public class ApplicationUser implements Serializable {
         this.appUserName = appUserName;
     }
 
-    public SavingsAccount getSavingsAccount() {
+    public int getSavingsAccount() {
         return savingsAccount;
     }
 
-    public void setSavingsAccount(SavingsAccount savingsAccount) {
+    public void setSavingsAccount(int savingsAccount) {
         this.savingsAccount = savingsAccount;
     }
 }

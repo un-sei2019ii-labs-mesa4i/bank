@@ -18,7 +18,7 @@ public class SavingsAccount implements Serializable {
     public String appAccount;
 
     @ColumnInfo(name = "owner")
-    public ApplicationUser owner;
+    public int owner;
 
     public int getSavingsAccountId() {
         return savingsAccountId;
@@ -44,11 +44,11 @@ public class SavingsAccount implements Serializable {
         this.appAccount = appAccount;
     }
 
-    public ApplicationUser getOwner() {
+    public int getOwner() {
         return owner;
     }
 
-    public void setOwner(ApplicationUser owner) {
+    public void setOwner(int owner) {
         this.owner = owner;
     }
 }

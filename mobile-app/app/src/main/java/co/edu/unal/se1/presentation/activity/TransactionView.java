@@ -22,7 +22,7 @@ public class TransactionView extends AppCompatActivity {
         final TextView targetIdInput = findViewById(R.id.receiver);
         final TextView valueInput = findViewById(R.id.amount);
 
-        Button sendMoneyButton = findViewById(R.id.TransferBtn);
+        Button sendMoneyButton = findViewById(R.id.transferBtn);
         sendMoneyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
