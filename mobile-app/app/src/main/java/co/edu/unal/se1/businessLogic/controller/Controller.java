@@ -1,9 +1,6 @@
 package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
-
-import co.edu.unal.se1.dataAccess.model.ApplicationUser;
-import co.edu.unal.se1.dataAccess.repository.ApplicationUserRepository;
 import co.edu.unal.se1.dataAccess.repository.Repository;
 
 public class Controller {
@@ -13,5 +10,4 @@ public class Controller {
     public Controller(Context context) {
         repository = new Repository(context);
     }
-
 }

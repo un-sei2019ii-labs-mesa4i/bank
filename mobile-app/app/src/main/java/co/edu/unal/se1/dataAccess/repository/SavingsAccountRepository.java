@@ -1,10 +1,7 @@
 package co.edu.unal.se1.dataAccess.repository;
 
 import android.content.Context;
-
 import java.util.List;
-
-import co.edu.unal.se1.dataAccess.model.SavingsAccount;
 import co.edu.unal.se1.dataAccess.model.SavingsAccount;
 
 public class SavingsAccountRepository extends  Repository{

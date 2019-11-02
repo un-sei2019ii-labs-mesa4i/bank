@@ -1,7 +1,6 @@
 package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
-
 import co.edu.unal.se1.dataAccess.model.ApplicationUser;
 import co.edu.unal.se1.dataAccess.model.SavingsAccount;
 import co.edu.unal.se1.dataAccess.repository.SavingsAccountRepository;
@@ -12,6 +11,13 @@ public class SavingsAccountController extends Controller{
 
     public SavingsAccountController(Context context) {
         super(context);
+    }
+
+    public void createSavingsAccount(SavingsAccount account, Context context) {
+
+        savingsAccountRepository = new SavingsAccountRepository(context);
+        savingsAccountRepository.createSavingsAccount(account);
+        System.out.println("¡Cuenta creada satisfactoriamente!");
     }
 
     public boolean sendMoney(int sourceId, int targetId, double value, Context context) {

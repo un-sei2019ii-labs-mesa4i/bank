@@ -1,9 +1,7 @@
 package co.edu.unal.se1.dataAccess.repository;
 
 import android.content.Context;
-
 import java.util.List;
-
 import co.edu.unal.se1.dataAccess.model.ApplicationUser;
 
 public class ApplicationUserRepository extends  Repository{
@@ -11,7 +9,6 @@ public class ApplicationUserRepository extends  Repository{
     public ApplicationUserRepository(Context context) {
         super(context);
     }
-
 
     public List<ApplicationUser> getAllApplicationUsers() {
         return database.applicationUserDao().getAllUsers();
