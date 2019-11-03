@@ -35,15 +35,9 @@ public class AppAccountsLog extends AppCompatActivity {
         appAccountObjects = (ArrayList) appAccountRepository.getAllAppAccounts();
 //esta es otra manera de halar los datos de la tabla
         for ( int i=0; i<appAccountObjects.size();i++){
-            accountData.add(appAccountObjects.get(i).getAppAccountEmail()+ " "+ appAccountObjects.get(i).getPassword()+ " "+appAccountObjects.get(i).getSavingsAccount());
-
-
-
+            accountData.add(appAccountObjects.get(i).getAppAccountEmail()+ " "+ appAccountObjects.get(i).getPassword()+ " "+
+            appAccountObjects.get(i).getSavingsAccount());
         }
-
-
-
-
 
         for (int i = 0; i <= accountData.size() - 1; i++)
             mixed.add(accountData.get(i));
