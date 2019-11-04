@@ -1,10 +1,15 @@
 package co.edu.unal.se1.presentation.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
+=======
+
+>>>>>>> c45c322c054ed6ce953e808160f89f57d7724a46
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< HEAD
 import android.widget.EditText;
 import co.edu.unal.se1.R;
 import co.edu.unal.se1.businessLogic.controller.ApplicationAccountController;
@@ -19,12 +24,27 @@ public class MainActivity extends AppCompatActivity {
     private ApplicationUserController applicationUserController;
     private SavingsAccountController savingsAccountController;
     private ApplicationAccountController applicationAccountController;
+=======
+import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputEditText;
+
+import co.edu.unal.se1.R;
+import co.edu.unal.se1.businessLogic.controller.UserController;
+import co.edu.unal.se1.dataAccess.model.User;
+import co.edu.unal.se1.dataAccess.repository.UserRepository;
+
+public class MainActivity extends AppCompatActivity {
+
+    private UserController userController;
+>>>>>>> c45c322c054ed6ce953e808160f89f57d7724a46
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         final EditText idInput = findViewById(R.id.depositor);
         final EditText nameInput = findViewById(R.id.receiver);
         final EditText accountInput = findViewById(R.id.amount);
@@ -33,10 +53,18 @@ public class MainActivity extends AppCompatActivity {
         final EditText newPasswordInput = findViewById(R.id.newPassword);
 
         Button createButton = findViewById(R.id.createBtn);
+=======
+        final TextInputEditText idInput = findViewById(R.id.id);
+        final TextInputEditText nameInput = findViewById(R.id.name);
+        final TextInputEditText balanceInput = findViewById(R.id.balance);
+
+        Button createButton = findViewById(R.id.createButton);
+>>>>>>> c45c322c054ed6ce953e808160f89f57d7724a46
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+<<<<<<< HEAD
                 ApplicationUser user = new ApplicationUser();
                 SavingsAccount account=new SavingsAccount();
                 ApplicationAccount appAccount= new ApplicationAccount();
@@ -81,4 +109,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+=======
+                User user = new User();
+                user.setId(Integer.parseInt(idInput.getText().toString()));
+                user.setName(nameInput.getText().toString());
+                user.setBalance(Double.parseDouble(balanceInput.getText().toString()));
+
+                userController = new UserController();
+                userController.createUser(user, getApplicationContext());
+            }
+        });
+
+        final TextView sourceIdInput = findViewById(R.id.sourceId);
+        final TextView targetIdInput = findViewById(R.id.targetId);
+        final TextView valueInput = findViewById(R.id.value);
+
+        Button sendMoneyButton = findViewById(R.id.sendMoneyButton);
+        sendMoneyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                userController = new UserController();
+
+                int sourceId = Integer.parseInt(sourceIdInput.getText().toString());
+                int targetId = Integer.parseInt(targetIdInput.getText().toString());
+                double value = Double.parseDouble(valueInput.getText().toString());
+
+                boolean transaction = userController.sendMoney(sourceId, targetId, value, getApplicationContext());
+
+                if (transaction) {
+                    System.out.println("¡Transacción satisfactoria!");
+                } else {
+                    System.out.println("¡Transacción no satisfactoria!");
+                }
+            }
+        });
+    }
+
+>>>>>>> c45c322c054ed6ce953e808160f89f57d7724a46
 }
