@@ -10,7 +10,6 @@ import co.edu.unal.se1.dataAccess.model.ApplicationUser;
 
 @Dao
 public interface ApplicationUserDao {
-
     @Query("SELECT * FROM applicationuser")
     List<ApplicationUser> getAllUsers();
 

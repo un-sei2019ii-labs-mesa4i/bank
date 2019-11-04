@@ -4,7 +4,7 @@ import android.content.Context;
 import java.util.List;
 import co.edu.unal.se1.dataAccess.model.SavingsAccount;
 
-public class SavingsAccountRepository extends  Repository{
+public class SavingsAccountRepository extends Repository {
 
     public SavingsAccountRepository(Context context) {
         super(context);
