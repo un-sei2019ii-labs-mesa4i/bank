@@ -11,7 +11,7 @@ import co.edu.unal.se1.businessLogic.controller.SavingsAccountController;
 import co.edu.unal.se1.businessLogic.controller.TransferController;
 import co.edu.unal.se1.dataAccess.model.Transfer;
 
-public class TransactionView extends AppCompatActivity {
+public class UserTransactionView extends AppCompatActivity {
 
     private SavingsAccountController savingsAccountController;
     private TransferController transferController;
@@ -19,13 +19,14 @@ public class TransactionView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.transaction_view);
+        setContentView(R.layout.user_transaction_view);
 
-        final TextView sourceIdInput = findViewById(R.id.depositorAdmin);
-        final TextView targetIdInput = findViewById(R.id.receiverAdmin);
-        final TextView valueInput = findViewById(R.id.amountAdmin);
+        final int userId=getIntent().getIntExtra("usuario",0);
 
-        Button sendMoneyButton = findViewById(R.id.makeTransferAdmin);
+        final TextView targetIdInput = findViewById(R.id.receiverUser);
+        final TextView valueInput = findViewById(R.id.amountUser);
+
+        Button sendMoneyButton = findViewById(R.id.transferUserBtn);
         sendMoneyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +34,7 @@ public class TransactionView extends AppCompatActivity {
                 savingsAccountController = new SavingsAccountController(getApplicationContext());
                 transferController=new TransferController(getApplicationContext());
 
-                int sourceId = Integer.parseInt(sourceIdInput.getText().toString());
+                int sourceId = userId;
                 int targetId = Integer.parseInt(targetIdInput.getText().toString());
                 double value = Double.parseDouble(valueInput.getText().toString());
 
@@ -57,7 +58,8 @@ public class TransactionView extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(v.getContext(),AdminView.class);
+                Intent i=new Intent(v.getContext(),UserView.class);
+                i.putExtra("usuario",userId);
                 startActivity(i);
                 finish();
             }

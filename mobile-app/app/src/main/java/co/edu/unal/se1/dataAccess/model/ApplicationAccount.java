@@ -13,7 +13,7 @@ public class ApplicationAccount implements Serializable {
     public String appAccountEmail;
 
     @ColumnInfo(name = "password")
-    public String password;
+    public int password;
 
     @ColumnInfo(name = "savingsAccount")
     public int savingsAccount;
@@ -26,11 +26,11 @@ public class ApplicationAccount implements Serializable {
         this.appAccountEmail = appAccountEmail;
     }
 
-    public String getPassword() {
+    public int getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(int password) {
         this.password = password;
     }
 

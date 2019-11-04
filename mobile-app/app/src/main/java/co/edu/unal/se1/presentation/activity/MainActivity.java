@@ -1,15 +1,10 @@
 package co.edu.unal.se1.presentation.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-<<<<<<< HEAD
-=======
-
->>>>>>> c45c322c054ed6ce953e808160f89f57d7724a46
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-<<<<<<< HEAD
 import android.widget.EditText;
 import co.edu.unal.se1.R;
 import co.edu.unal.se1.businessLogic.controller.ApplicationAccountController;
@@ -24,47 +19,24 @@ public class MainActivity extends AppCompatActivity {
     private ApplicationUserController applicationUserController;
     private SavingsAccountController savingsAccountController;
     private ApplicationAccountController applicationAccountController;
-=======
-import android.widget.TextView;
-
-import com.google.android.material.textfield.TextInputEditText;
-
-import co.edu.unal.se1.R;
-import co.edu.unal.se1.businessLogic.controller.UserController;
-import co.edu.unal.se1.dataAccess.model.User;
-import co.edu.unal.se1.dataAccess.repository.UserRepository;
-
-public class MainActivity extends AppCompatActivity {
-
-    private UserController userController;
->>>>>>> c45c322c054ed6ce953e808160f89f57d7724a46
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
-        final EditText idInput = findViewById(R.id.depositor);
-        final EditText nameInput = findViewById(R.id.receiver);
-        final EditText accountInput = findViewById(R.id.amount);
-        final EditText balanceInput = findViewById(R.id.balance);
-        final EditText emailInput = findViewById(R.id.email);
-        final EditText newPasswordInput = findViewById(R.id.newPassword);
+        final EditText idInput = findViewById(R.id.idInit);
+        final EditText nameInput = findViewById(R.id.nameInit);
+        final EditText emailInput = findViewById(R.id.eMailInit);
+        final EditText newPasswordInput = findViewById(R.id.passwordInit);
+        final EditText accountInput = findViewById(R.id.savingsAccountInit);
+        final EditText balanceInput = findViewById(R.id.balanceInit);
 
-        Button createButton = findViewById(R.id.createBtn);
-=======
-        final TextInputEditText idInput = findViewById(R.id.id);
-        final TextInputEditText nameInput = findViewById(R.id.name);
-        final TextInputEditText balanceInput = findViewById(R.id.balance);
-
-        Button createButton = findViewById(R.id.createButton);
->>>>>>> c45c322c054ed6ce953e808160f89f57d7724a46
+        Button createButton = findViewById(R.id.createUserByAdminBtn);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-<<<<<<< HEAD
                 ApplicationUser user = new ApplicationUser();
                 SavingsAccount account=new SavingsAccount();
                 ApplicationAccount appAccount= new ApplicationAccount();
@@ -75,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
                 account.setSavingsAccountId(Integer.parseInt(accountInput.getText().toString()));
                 account.setBalance(Double.parseDouble(balanceInput.getText().toString()));
-                account.setAppAccount("");
+                account.setAppAccount(emailInput.getText().toString());
                 account.setOwner(Integer.parseInt(idInput.getText().toString()));
 
                 appAccount.setAppAccountEmail(emailInput.getText().toString());
-                appAccount.setPassword(newPasswordInput.getText().toString());
+                appAccount.setPassword(Integer.parseInt(newPasswordInput.getText().toString()));
                 appAccount.setSavingsAccount(Integer.parseInt(accountInput.getText().toString()));
 
                 applicationUserController = new ApplicationUserController(getApplicationContext());
@@ -92,59 +64,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button transferButton = findViewById(R.id.transferBtn);
-        transferButton.setOnClickListener(new View.OnClickListener() {
+        Button backButton = findViewById(R.id.backBtn);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(v.getContext(),TransactionView.class);
+                Intent i=new Intent(v.getContext(),AdminView.class);
                 startActivity(i);
-            }
-        });
-        Button appAccountsLogButton = findViewById(R.id.appAccountsLogButton);
-        appAccountsLogButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(v.getContext(),AppAccountsLog.class);
-                startActivity(i);
+                finish();
             }
         });
     }
-=======
-                User user = new User();
-                user.setId(Integer.parseInt(idInput.getText().toString()));
-                user.setName(nameInput.getText().toString());
-                user.setBalance(Double.parseDouble(balanceInput.getText().toString()));
-
-                userController = new UserController();
-                userController.createUser(user, getApplicationContext());
-            }
-        });
-
-        final TextView sourceIdInput = findViewById(R.id.sourceId);
-        final TextView targetIdInput = findViewById(R.id.targetId);
-        final TextView valueInput = findViewById(R.id.value);
-
-        Button sendMoneyButton = findViewById(R.id.sendMoneyButton);
-        sendMoneyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                userController = new UserController();
-
-                int sourceId = Integer.parseInt(sourceIdInput.getText().toString());
-                int targetId = Integer.parseInt(targetIdInput.getText().toString());
-                double value = Double.parseDouble(valueInput.getText().toString());
-
-                boolean transaction = userController.sendMoney(sourceId, targetId, value, getApplicationContext());
-
-                if (transaction) {
-                    System.out.println("¡Transacción satisfactoria!");
-                } else {
-                    System.out.println("¡Transacción no satisfactoria!");
-                }
-            }
-        });
-    }
-
->>>>>>> c45c322c054ed6ce953e808160f89f57d7724a46
 }

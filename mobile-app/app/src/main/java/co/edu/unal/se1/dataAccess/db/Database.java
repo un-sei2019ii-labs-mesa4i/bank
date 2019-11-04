@@ -2,7 +2,6 @@ package co.edu.unal.se1.dataAccess.db;
 
 import androidx.room.RoomDatabase;
 
-<<<<<<< HEAD
 import co.edu.unal.se1.dataAccess.dao.ApplicationAccountDao;
 import co.edu.unal.se1.dataAccess.dao.ApplicationUserDao;
 import co.edu.unal.se1.dataAccess.dao.SavingsAccountDao;
@@ -20,13 +19,4 @@ public abstract class Database extends RoomDatabase {
     public abstract SavingsAccountDao savingsAccountDao();
     public abstract TransferDao transferDao();
     public abstract ApplicationAccountDao applicationAccountDao();
-=======
-import co.edu.unal.se1.dataAccess.dao.UserDao;
-import co.edu.unal.se1.dataAccess.model.User;
-
-@androidx.room.Database(entities = {User.class}, version = 1)
-public abstract class Database extends RoomDatabase {
-
-    public abstract UserDao userDao();
->>>>>>> c45c322c054ed6ce953e808160f89f57d7724a46
 }

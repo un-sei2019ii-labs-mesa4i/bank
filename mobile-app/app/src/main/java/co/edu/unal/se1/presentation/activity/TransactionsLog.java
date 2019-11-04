@@ -31,29 +31,23 @@ public class TransactionsLog extends AppCompatActivity {
 
         transferRepository=new TransferRepository(getApplicationContext());
         final ListView list=findViewById(R.id.list);
-        ArrayList<Integer> id=new ArrayList<>();
-        ArrayList<Integer> depositor=new ArrayList<>();
-        ArrayList<Integer> receiver=new ArrayList<>();
-        ArrayList<Double> amount=new ArrayList<>();
-        ArrayList<String> mixed=new ArrayList<>();
+        ArrayList<Transfer> transferArrayList=(ArrayList) transferRepository.getAllTransfers();
+        ArrayList<String> transfersData=new ArrayList<>();
 
-        id= (ArrayList)transferRepository.getTransferIds();
-        depositor=(ArrayList)transferRepository.getTransferDepositors();
-        receiver=(ArrayList)transferRepository.getTransferReceivers();
-        amount=(ArrayList)transferRepository.getTransferAmount();
+        for ( int i=0; i<transferArrayList.size();i++)
+            transfersData.add(transferArrayList.get(i).getTransferId()+ " "+ transferArrayList.get(i).getDepositorId()+ " "+
+                    transferArrayList.get(i).getReceiverId()+ " "+ transferArrayList.get(i).getAmount());
 
-        for (int i=0; i<=id.size()-1; i++)
-            mixed.add(id.get(i) + " - "+depositor.get(i)+" - "+receiver.get(i)+" - "+amount.get(i));
-
-        ArrayAdapter<String> adapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mixed);
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, transfersData);
         list.setAdapter(adapter);
 
         Button backButton = findViewById(R.id.backBtn);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(v.getContext(),TransactionView.class);
+                Intent i=new Intent(v.getContext(),AdminView.class);
                 startActivity(i);
+                finish();
             }
         });
 
