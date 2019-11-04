@@ -15,24 +15,8 @@ public class TransferRepository extends Repository{
         return database.transferDao().getAllTransfers();
     }
 
-    public List<Integer> getTransferIds() {
-        return database.transferDao().getTransferIds();
-    }
-
-    public List<Integer> getTransferDepositors() {
-        return database.transferDao().getTransferDepositors();
-    }
-
-    public List<Integer> getTransferReceivers() {
-        return database.transferDao().getTransferReceivers();
-    }
-
-    public List<Double> getTransferAmount() {
-        return database.transferDao().getTransferAmount();
-    }
-
-    public Transfer getTransferById(int id) {
-        return database.transferDao().getTransferById(id);
+    public List<Transfer> getTransferByDepositorId(int id) {
+        return database.transferDao().getTransferByDepositorId(id);
     }
 
     public void createTransfer(final Transfer transfer) {
