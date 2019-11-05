@@ -2,10 +2,20 @@ package co.edu.unal.se1.dataAccess.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import java.io.Serializable;
+@Entity(foreignKeys = {@ForeignKey(entity = ApplicationUser.class,
+        parentColumns = "appUserId",
+        childColumns = "depositorId",
+        onDelete = ForeignKey.CASCADE),
+        @ForeignKey(entity = ApplicationUser.class,
+                parentColumns = "appUserId",
+                childColumns = "receiverId",
+                onDelete = ForeignKey.CASCADE)
 
-@Entity
+})
+
 public class Transfer implements Serializable {
 
     @PrimaryKey(autoGenerate = true)

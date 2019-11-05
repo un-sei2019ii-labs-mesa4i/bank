@@ -2,13 +2,19 @@ package co.edu.unal.se1.dataAccess.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
-@Entity
+@Entity (foreignKeys = @ForeignKey(entity = SavingsAccount.class,
+        parentColumns = "savingsAccountId",
+        childColumns = "savingsAccount",
+        onDelete = ForeignKey.CASCADE))
+
 public class ApplicationUser implements Serializable {
 
     @PrimaryKey
+
     public int appUserId;
 
     @ColumnInfo(name = "appUserName")
