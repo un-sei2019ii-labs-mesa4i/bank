@@ -1,6 +1,10 @@
 package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 45021a8eb130fc53d36462c321d8eaab739a61b4
 import co.edu.unal.se1.dataAccess.model.ApplicationAccount;
 import co.edu.unal.se1.dataAccess.model.ApplicationUser;
 import co.edu.unal.se1.dataAccess.model.SavingsAccount;
@@ -14,6 +18,9 @@ public class SavingsAccountController extends Controller{
 
     public SavingsAccountController(Context context) {
         super(context);
+        savingsAccountRepository = new SavingsAccountRepository(context);
+
+
     }
 
     public SavingsAccount getAccount(int id,Context context){
@@ -21,15 +28,19 @@ public class SavingsAccountController extends Controller{
         return savingsAccountRepository.getSavingsAccountById(id);;
     }
 
+<<<<<<< HEAD
     public void createSavingsAccount(SavingsAccount account, Context context) {
         savingsAccountRepository = new SavingsAccountRepository(context);
+=======
+
+>>>>>>> 45021a8eb130fc53d36462c321d8eaab739a61b4
         savingsAccountRepository.createSavingsAccount(account);
         System.out.println("¡Cuenta creada satisfactoriamente!");
     }
 
     public boolean sendMoney(int sourceId, int targetId, double value, Context context) {
 
-        savingsAccountRepository = new SavingsAccountRepository(context);
+
         applicationUserRepository=new ApplicationUserRepository(context);
 
         final ApplicationUser sourceUser = applicationUserRepository.getUserById(sourceId);
@@ -83,4 +94,19 @@ public class SavingsAccountController extends Controller{
     public int extractOwner(SavingsAccount acc) {
         return acc.getOwner();
     }
+<<<<<<< HEAD
 }
+=======
+    public SavingsAccount extractSavingsAccountById(ApplicationAccount appAcc) {
+        return savingsAccountRepository.getSavingsAccountById(appAcc.getSavingsAccount());
+
+
+
+    }
+    public int extractOwner(SavingsAccount acc) {
+
+        return acc.getOwner();
+
+    }
+}
+>>>>>>> 45021a8eb130fc53d36462c321d8eaab739a61b4

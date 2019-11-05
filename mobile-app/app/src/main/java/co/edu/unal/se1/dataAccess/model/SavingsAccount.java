@@ -17,7 +17,7 @@ public class SavingsAccount implements Serializable {
     @ColumnInfo(name = "appAccount")
     public String appAccount;
 
-    @ColumnInfo(name = "owner")
+    @ColumnInfo(name = "owner")//id del owner
     public int owner;
 
     public int getSavingsAccountId() {
