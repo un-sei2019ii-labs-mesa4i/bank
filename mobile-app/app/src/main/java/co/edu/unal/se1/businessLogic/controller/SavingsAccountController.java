@@ -15,18 +15,21 @@ public class SavingsAccountController extends Controller{
 
     public SavingsAccountController(Context context) {
         super(context);
+        savingsAccountRepository = new SavingsAccountRepository(context);
+
+
     }
 
     public void createSavingsAccount(SavingsAccount account, Context context) {
 
-        savingsAccountRepository = new SavingsAccountRepository(context);
+
         savingsAccountRepository.createSavingsAccount(account);
         System.out.println("¡Cuenta creada satisfactoriamente!");
     }
 
     public boolean sendMoney(int sourceId, int targetId, double value, Context context) {
 
-        savingsAccountRepository = new SavingsAccountRepository(context);
+
         applicationUserRepository=new ApplicationUserRepository(context);
 
         final ApplicationUser sourceUser = applicationUserRepository.getUserById(sourceId);

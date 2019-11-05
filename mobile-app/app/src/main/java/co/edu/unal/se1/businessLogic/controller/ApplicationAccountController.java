@@ -16,11 +16,12 @@ public class ApplicationAccountController extends Controller {
 
     public ApplicationAccountController(Context context) {
         super(context);
+        applicationAccountRepository = new ApplicationAccountRepository(context);
     }
 
     public void createApplicationAccount(ApplicationAccount applicationAccount, Context context) {
 
-        applicationAccountRepository = new ApplicationAccountRepository(context);
+
         //applicationUserRepository.database= super.repository.database;//revisar como estaba antes
         applicationAccountRepository.createAppAccount((applicationAccount));
 
@@ -33,6 +34,7 @@ public class ApplicationAccountController extends Controller {
 
     }
     public ApplicationAccount extractUserByEmail(String eMail) {
+
        return  applicationAccountRepository.getUserByEmail(eMail);
 
     }
