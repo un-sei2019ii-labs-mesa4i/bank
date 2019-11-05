@@ -15,8 +15,13 @@ public class ApplicationUserController extends Controller {
     public void createApplicationUser(ApplicationUser applicationUser, Context context) {
 
         applicationUserRepository = new ApplicationUserRepository(context);
-        //applicationUserRepository.database= super.repository.database;//revisar como estaba antes
         applicationUserRepository.createUser(applicationUser);
         System.out.println("¡Usuario creado satisfactoriamente!");
+    }
+
+    public ApplicationUser getUser(int userId,Context context){
+        applicationUserRepository = new ApplicationUserRepository(context);
+        ApplicationUser user=applicationUserRepository.getUserById(userId);
+        return user;
     }
 }

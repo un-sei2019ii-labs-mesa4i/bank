@@ -7,23 +7,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import co.edu.unal.se1.R;
+import co.edu.unal.se1.businessLogic.controller.ApplicationAccountController;
+import co.edu.unal.se1.businessLogic.controller.SavingsAccountController;
 import co.edu.unal.se1.dataAccess.model.ApplicationAccount;
 import co.edu.unal.se1.dataAccess.model.SavingsAccount;
-import co.edu.unal.se1.dataAccess.repository.ApplicationAccountRepository;
-import co.edu.unal.se1.dataAccess.repository.SavingsAccountRepository;
 
 public class LogInView extends AppCompatActivity {
 
-    private ApplicationAccountRepository applicationAccountRepository;
-    private SavingsAccountRepository savingsAccountRepository;
+    private ApplicationAccountController applicationAccountController;
+    private SavingsAccountController savingsAccountController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_view);
 
-        applicationAccountRepository=new ApplicationAccountRepository(getApplicationContext());
-        savingsAccountRepository=new SavingsAccountRepository(getApplicationContext());
+        applicationAccountController=new ApplicationAccountController(getApplicationContext());
+        savingsAccountController =new SavingsAccountController(getApplicationContext());
 
         Button logInButton = findViewById(R.id.logInBtn);
         logInButton.setOnClickListener(new View.OnClickListener() {
@@ -33,18 +33,18 @@ public class LogInView extends AppCompatActivity {
                 final TextView eMail = findViewById(R.id.Email);
                 final TextView password = findViewById(R.id.Password);
 
-                final ApplicationAccount appAcc=applicationAccountRepository.getUserByEmail(eMail.getText().toString());
-                final String pass=password.getText().toString();
-                final String eMailAdmin =eMail.getText().toString();//por ahora machete asi
+                final ApplicationAccount appAcc=applicationAccountController.extractUserByEmail(eMail.getText().toString());
+                final int pass=Integer.parseInt(password.getText().toString());
+                final String eMailAdmin =eMail.getText().toString();
 
-                if (eMailAdmin.equals("admin")&&pass.equals("1234")){//ojo machete
+                if (eMailAdmin.equals("admin")&&pass==1234){
                     Intent i=new Intent(v.getContext(),AdminView.class);
                     startActivity(i);
                     finish();
-                }else if(appAcc!=null && appAcc.getPassword().equals(pass)){
-                    SavingsAccount acc=savingsAccountRepository.getSavingsAccountById(appAcc.getSavingsAccount());
+                }else if(appAcc!=null && applicationAccountController.verifyLogin(appAcc,pass)){
+                    SavingsAccount acc=savingsAccountController.extractSavingsAccountById(appAcc);
                     Intent i=new Intent(v.getContext(),UserView.class);
-                    i.putExtra("usuario",acc.getOwner());
+                    i.putExtra("usuario",savingsAccountController.extractOwner(acc));
                     startActivity(i);
                     finish();
                 }else{

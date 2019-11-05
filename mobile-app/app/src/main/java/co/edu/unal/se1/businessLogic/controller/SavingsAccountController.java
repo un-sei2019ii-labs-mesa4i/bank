@@ -1,6 +1,7 @@
 package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
+import co.edu.unal.se1.dataAccess.model.ApplicationAccount;
 import co.edu.unal.se1.dataAccess.model.ApplicationUser;
 import co.edu.unal.se1.dataAccess.model.SavingsAccount;
 import co.edu.unal.se1.dataAccess.repository.ApplicationUserRepository;
@@ -15,8 +16,12 @@ public class SavingsAccountController extends Controller{
         super(context);
     }
 
-    public void createSavingsAccount(SavingsAccount account, Context context) {
+    public SavingsAccount getAccount(int id,Context context){
+        savingsAccountRepository = new SavingsAccountRepository(context);
+        return savingsAccountRepository.getSavingsAccountById(id);;
+    }
 
+    public void createSavingsAccount(SavingsAccount account, Context context) {
         savingsAccountRepository = new SavingsAccountRepository(context);
         savingsAccountRepository.createSavingsAccount(account);
         System.out.println("¡Cuenta creada satisfactoriamente!");
@@ -65,13 +70,17 @@ public class SavingsAccountController extends Controller{
                     ", Name: " + updatedTargetUser.getAppUserName()+
                     ", Account: " + updatedTargetUser.getSavingsAccount()+
                     ", Balance: " + updatedTargetAccount.getBalance());
-
             return true;
-
         } else {
-
             return false;
         }
+    }
 
+    public SavingsAccount extractSavingsAccountById(ApplicationAccount appAcc) {
+        return savingsAccountRepository.getSavingsAccountById(appAcc.getSavingsAccount());
+    }
+
+    public int extractOwner(SavingsAccount acc) {
+        return acc.getOwner();
     }
 }
