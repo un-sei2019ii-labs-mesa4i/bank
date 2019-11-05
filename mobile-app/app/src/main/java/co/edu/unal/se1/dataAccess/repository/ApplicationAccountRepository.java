@@ -7,7 +7,11 @@ import java.util.List;
 import co.edu.unal.se1.dataAccess.model.ApplicationAccount;
 import co.edu.unal.se1.dataAccess.model.ApplicationUser;
 
+<<<<<<< HEAD
 public class ApplicationAccountRepository extends Repository {
+=======
+public class ApplicationAccountRepository extends  Repository {
+>>>>>>> ncontrerasn-feature
     public ApplicationAccountRepository(Context context) {
         super(context);
     }

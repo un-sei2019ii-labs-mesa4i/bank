@@ -9,23 +9,37 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import co.edu.unal.se1.R;
+<<<<<<< HEAD
 import co.edu.unal.se1.businessLogic.controller.ApplicationAccountController;
+=======
+>>>>>>> ncontrerasn-feature
 import co.edu.unal.se1.dataAccess.model.ApplicationAccount;
 import co.edu.unal.se1.dataAccess.repository.ApplicationAccountRepository;
 
 public class AppAccountsLog extends AppCompatActivity {
+<<<<<<< HEAD
 
     private ApplicationAccountController appAccountController;
+=======
+    private ApplicationAccountRepository appAccountRepository;
+>>>>>>> ncontrerasn-feature
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.appaccount_log);
+<<<<<<< HEAD
     appAccountController=new ApplicationAccountController(getApplicationContext());
 
 
         final ListView list = findViewById(R.id.list);
         ArrayList<ApplicationAccount> appAccountObjects=(ArrayList) appAccountController.extractAllAppAccounts();
+=======
+
+        appAccountRepository = new ApplicationAccountRepository(getApplicationContext());
+        final ListView list = findViewById(R.id.list);
+        ArrayList<ApplicationAccount> appAccountObjects=(ArrayList) appAccountRepository.getAllAppAccounts();
+>>>>>>> ncontrerasn-feature
         ArrayList<String> accountData = new ArrayList<>();
 
         for ( int i=0; i<appAccountObjects.size();i++)

@@ -1,9 +1,12 @@
 package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
+<<<<<<< HEAD
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
+=======
+>>>>>>> ncontrerasn-feature
 
 import co.edu.unal.se1.dataAccess.model.ApplicationAccount;
 import co.edu.unal.se1.dataAccess.model.ApplicationUser;
@@ -16,17 +19,25 @@ public class ApplicationAccountController extends Controller {
 
     public ApplicationAccountController(Context context) {
         super(context);
+<<<<<<< HEAD
         applicationAccountRepository = new ApplicationAccountRepository(context);
+=======
+>>>>>>> ncontrerasn-feature
     }
 
     public void createApplicationAccount(ApplicationAccount applicationAccount, Context context) {
 
+<<<<<<< HEAD
 
+=======
+        applicationAccountRepository = new ApplicationAccountRepository(context);
+>>>>>>> ncontrerasn-feature
         //applicationUserRepository.database= super.repository.database;//revisar como estaba antes
         applicationAccountRepository.createAppAccount((applicationAccount));
 
         System.out.println("¡Cuenta en la aplicacion creada satisfactoriamente!");
     }
+<<<<<<< HEAD
     public ArrayList<ApplicationAccount> extractAllAppAccounts(){
 
         return (ArrayList)applicationAccountRepository.getAllAppAccounts();
@@ -48,3 +59,8 @@ public class ApplicationAccountController extends Controller {
 
 
 
+=======
+
+
+}
+>>>>>>> ncontrerasn-feature
