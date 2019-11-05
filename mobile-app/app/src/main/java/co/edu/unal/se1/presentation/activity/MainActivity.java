@@ -52,12 +52,22 @@ public class MainActivity extends AppCompatActivity {
 
                 appAccount.setAppAccountEmail(emailInput.getText().toString());
                 appAccount.setPassword(Integer.parseInt(newPasswordInput.getText().toString()));
+<<<<<<< HEAD
                 appAccount.setSavingsAccount(Integer.parseInt(accountInput.getText().toString()));
 
                 applicationUserController = new ApplicationUserController(getApplicationContext());
                 savingsAccountController = new SavingsAccountController(getApplicationContext());
                 applicationAccountController=new ApplicationAccountController(getApplicationContext());
 
+=======
+
+                appAccount.setSavingsAccount(Integer.parseInt(accountInput.getText().toString()));
+
+                applicationUserController = new ApplicationUserController(getApplicationContext());
+                savingsAccountController = new SavingsAccountController(getApplicationContext());
+                applicationAccountController=new ApplicationAccountController(getApplicationContext());
+
+>>>>>>> 2cc725aec82dd97241c8c101c5e3f1bf90a679e0
                 savingsAccountController.createSavingsAccount(account, getApplicationContext());
                 applicationUserController.createApplicationUser(user, getApplicationContext());
                 applicationAccountController.createApplicationAccount(appAccount, getApplicationContext());

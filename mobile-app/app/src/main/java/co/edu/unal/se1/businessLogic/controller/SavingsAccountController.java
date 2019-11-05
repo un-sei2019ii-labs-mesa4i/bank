@@ -1,6 +1,11 @@
 package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
+<<<<<<< HEAD
+=======
+
+import co.edu.unal.se1.dataAccess.model.ApplicationAccount;
+>>>>>>> 2cc725aec82dd97241c8c101c5e3f1bf90a679e0
 import co.edu.unal.se1.dataAccess.model.ApplicationUser;
 import co.edu.unal.se1.dataAccess.model.SavingsAccount;
 import co.edu.unal.se1.dataAccess.repository.ApplicationUserRepository;
@@ -13,14 +18,31 @@ public class SavingsAccountController extends Controller{
 
     public SavingsAccountController(Context context) {
         super(context);
+<<<<<<< HEAD
+=======
+
+        savingsAccountRepository = new SavingsAccountRepository(context);
+
+>>>>>>> 2cc725aec82dd97241c8c101c5e3f1bf90a679e0
     }
 
     public void createSavingsAccount(SavingsAccount account, Context context) {
 
+<<<<<<< HEAD
         savingsAccountRepository = new SavingsAccountRepository(context);
         savingsAccountRepository.createSavingsAccount(account);
         System.out.println("¡Cuenta creada satisfactoriamente!");
     }
+=======
+
+        savingsAccountRepository.createSavingsAccount(account);
+        System.out.println("¡Cuenta creada satisfactoriamente!");
+    }
+    public SavingsAccount getAccount(int id,Context context){
+
+        return savingsAccountRepository.getSavingsAccountById(id);
+    }
+>>>>>>> 2cc725aec82dd97241c8c101c5e3f1bf90a679e0
 
     public boolean sendMoney(int sourceId, int targetId, double value, Context context) {
 
@@ -74,4 +96,18 @@ public class SavingsAccountController extends Controller{
         }
 
     }
+<<<<<<< HEAD
+=======
+    public SavingsAccount extractSavingsAccountById(ApplicationAccount appAcc) {
+        return savingsAccountRepository.getSavingsAccountById(appAcc.getSavingsAccount());
+
+
+
+    }
+    public int extractOwner(SavingsAccount acc) {
+
+        return acc.getOwner();
+
+    }
+>>>>>>> 2cc725aec82dd97241c8c101c5e3f1bf90a679e0
 }
