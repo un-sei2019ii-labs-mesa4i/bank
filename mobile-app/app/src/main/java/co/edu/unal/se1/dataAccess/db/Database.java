@@ -13,20 +13,18 @@ import co.edu.unal.se1.dataAccess.model.ExternalUser;
 import co.edu.unal.se1.dataAccess.model.SavingsAccount;
 import co.edu.unal.se1.dataAccess.model.Transfer;
 
-<<<<<<< HEAD
-@androidx.room.Database(entities = {ApplicationUser.class, SavingsAccount.class, Transfer.class, ApplicationAccount.class, ExternalUser.class}, version = 1, exportSchema = false)
-=======
 
-@androidx.room.Database(entities = {ApplicationUser.class, SavingsAccount.class, Transfer.class, ApplicationAccount.class}, version = 1,exportSchema = false)
->>>>>>> ncontrerasn-feature
+@androidx.room.Database(entities = {ApplicationUser.class, SavingsAccount.class, Transfer.class, ApplicationAccount.class, ExternalUser.class}, version = 1, exportSchema = false)
+
+
+
 public abstract class Database extends RoomDatabase {
     public abstract ApplicationUserDao applicationUserDao();
 
     public abstract SavingsAccountDao savingsAccountDao();
     public abstract TransferDao transferDao();
     public abstract ApplicationAccountDao applicationAccountDao();
-<<<<<<< HEAD
+
     public abstract ExternalUserDao externalUserDao();
-=======
->>>>>>> ncontrerasn-feature
+
 }

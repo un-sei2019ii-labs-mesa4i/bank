@@ -51,11 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 account.setOwner(Integer.parseInt(idInput.getText().toString()));
 
                 appAccount.setAppAccountEmail(emailInput.getText().toString());
-<<<<<<< HEAD
                 appAccount.setPassword(Integer.parseInt(newPasswordInput.getText().toString()));
-=======
-                appAccount.setPassword(newPasswordInput.getText().toString());
->>>>>>> ncontrerasn-feature
+
                 appAccount.setSavingsAccount(Integer.parseInt(accountInput.getText().toString()));
 
                 applicationUserController = new ApplicationUserController(getApplicationContext());

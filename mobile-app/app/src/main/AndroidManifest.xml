@@ -12,10 +12,9 @@
         <activity
             android:name="co.edu.unal.se1.presentation.activity.MainActivity"
             android:label="@string/app_name">
-<<<<<<< HEAD
 
-=======
->>>>>>> ncontrerasn-feature
+
+
         </activity>
 
         <activity
