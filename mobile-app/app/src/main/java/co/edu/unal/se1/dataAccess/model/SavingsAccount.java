@@ -6,16 +6,7 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
-@Entity(foreignKeys = {@ForeignKey(entity = ApplicationUser.class,
-        parentColumns = "appUserId",
-        childColumns = "owner",
-        onDelete = ForeignKey.CASCADE),
-        @ForeignKey(entity = ApplicationAccount.class,
-                parentColumns = "appAccountEmail",
-                childColumns = "appAccount",
-                onDelete = ForeignKey.CASCADE)
-}
-)
+@Entity
 public class SavingsAccount implements Serializable {
 
     @PrimaryKey
