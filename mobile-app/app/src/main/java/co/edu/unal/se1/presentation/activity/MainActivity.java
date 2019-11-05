@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
                 appAccount.setAppAccountEmail(emailInput.getText().toString());
                 appAccount.setPassword(Integer.parseInt(newPasswordInput.getText().toString()));
+
                 appAccount.setSavingsAccount(Integer.parseInt(accountInput.getText().toString()));
 
                 applicationUserController = new ApplicationUserController(getApplicationContext());

@@ -9,12 +9,13 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import co.edu.unal.se1.R;
+import co.edu.unal.se1.businessLogic.controller.TransferController;
 import co.edu.unal.se1.dataAccess.model.Transfer;
 import co.edu.unal.se1.dataAccess.repository.TransferRepository;
 
 public class UserTransactionsLog extends AppCompatActivity {
 
-    private TransferRepository transferRepository;
+    private TransferController transferController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +24,8 @@ public class UserTransactionsLog extends AppCompatActivity {
 
         final int userId=getIntent().getIntExtra("usuario",0);
         final ListView list = findViewById(R.id.list);
-        transferRepository = new TransferRepository(getApplicationContext());
-        ArrayList<Transfer> userTransfers=(ArrayList)transferRepository.getTransferByDepositorId(userId);
-        ArrayList<String> infoArray = new ArrayList<>();
-
-        for (int i=0; i<userTransfers.size(); i++)
-            infoArray.add(userTransfers.get(i).getTransferId() + " - "+userTransfers.get(i).getReceiverId()+" - "+userTransfers.get(i).getAmount());
+        transferController=new TransferController(getApplicationContext());
+        ArrayList<String> infoArray=transferController.transferListByUser(userId,getApplicationContext());
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, infoArray);
         list.setAdapter(adapter);

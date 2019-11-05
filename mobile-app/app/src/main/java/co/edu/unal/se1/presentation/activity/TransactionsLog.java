@@ -1,37 +1,30 @@
 package co.edu.unal.se1.presentation.activity;
 
-import androidx.annotation.IntegerRes;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import co.edu.unal.se1.R;
-import co.edu.unal.se1.businessLogic.controller.SavingsAccountController;
 import co.edu.unal.se1.businessLogic.controller.TransferController;
-import co.edu.unal.se1.dataAccess.dao.TransferDao;
 import co.edu.unal.se1.dataAccess.model.Transfer;
-import co.edu.unal.se1.dataAccess.repository.TransferRepository;
 import java.util.ArrayList;
 
 import android.widget.ArrayAdapter;
 
 public class TransactionsLog extends AppCompatActivity {
 
-    private TransferRepository transferRepository;
+    private TransferController transferController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.transactions_log);
 
-        transferRepository=new TransferRepository(getApplicationContext());
+        transferController=new TransferController(getApplicationContext());
         final ListView list=findViewById(R.id.list);
-        ArrayList<Transfer> transferArrayList=(ArrayList) transferRepository.getAllTransfers();
+        ArrayList<Transfer> transferArrayList=(ArrayList) transferController.transferList(getApplicationContext());
         ArrayList<String> transfersData=new ArrayList<>();
 
         for ( int i=0; i<transferArrayList.size();i++)
