@@ -23,6 +23,7 @@ public class ApplicationUserRepository extends  Repository{
     }
 
     public void updateUser(ApplicationUser user) {
+
         database.applicationUserDao().updateUser(user);
     }
 
