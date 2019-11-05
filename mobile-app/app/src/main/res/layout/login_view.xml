@@ -50,7 +50,7 @@
 =======
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="316dp"
         android:text='Para ingresar como administrador ingrese en              E-mail "admin" y en Password "1234"'
