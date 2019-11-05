@@ -58,7 +58,7 @@ public class LogInView extends AppCompatActivity {
 
                 }else if(appAcc!=null && applicationAccountController.verifyLogin(appAcc,pass)){
 
-                    System.out.println("vamos a entrar");
+                   
                     SavingsAccount acc=savingsAccountController.extractSavingsAccountById(appAcc);
                     Intent i=new Intent(v.getContext(),UserView.class);
                     i.putExtra("usuario",savingsAccountController.extractOwner(acc));
