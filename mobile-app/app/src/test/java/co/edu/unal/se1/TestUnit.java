@@ -10,7 +10,7 @@ import co.edu.unal.se1.dataAccess.model.ApplicationAccount;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestUnit extends junit.framework.TestCase {
-    private static final String VALIDATION_MESSAGE = "Login was successful";
+    private static final String VALIDATION_MESSAGE = "Success!";
 
     @Mock
     Context mockContext;
@@ -22,7 +22,7 @@ public class TestUnit extends junit.framework.TestCase {
     }
 
     @Test
-    public void createSavingsAcountValidate (int sourceId, int targetId, double value) {
+    public void createSavingsAccountValidate (int sourceId, int targetId, double value) {
         SavingsAccountController sac = new SavingsAccountController(mockContext);
         assertEquals(sac.sendMoney(sourceId, targetId, value, mockContext),true);
     }
